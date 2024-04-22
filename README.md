@@ -2,7 +2,7 @@
 
 **Asset Manager** is my Console Asset Management Application.
 
-The purpose of this applciation is to manage assets in a company. The application allows the user to add, delete, and view assets. The user can also check out and check in assets. The application also allows the user to see the history of the asset.
+The purpose of this application is to manage assets in a company. The application allows the user to add, delete, and view assets. The user can also check out and check in assets. The application also allows the user to see the history of the asset.
 
 
 [Software Demo Video]()
