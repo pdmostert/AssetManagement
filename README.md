@@ -4,6 +4,9 @@
 
 The purpose of this application is to manage assets in a company. The application allows the user to add, delete, and view assets. The user can also check out and check in assets. The application also allows the user to see the history of the asset.
 
+The development fundamentals of this application will allow me to showcase the use of classes, objects, methods, and properties in C# as well as loops and conditional statements.
+
+
 
 [Software Demo Video]()
 
