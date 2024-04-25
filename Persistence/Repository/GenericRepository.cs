@@ -40,9 +40,9 @@ internal class GenericRepository<T> : IGenericRepository<T> where T : Entity
             existingEntities = new List<T>();
         }
 
-        existingEntities.Remove(entity);
+        existingEntities.Remove(existingEntities.First(x => x.Id == entity.Id));
         _assetDbContext.Save(_fileName, existingEntities);
-        return Task.CompletedTask;
+        return Task.FromResult("OK");
 
     }
 
@@ -85,7 +85,7 @@ internal class GenericRepository<T> : IGenericRepository<T> where T : Entity
         existingEntities.Add(entity);
 
         _assetDbContext.Save(_fileName, existingEntities);
-        return Task.CompletedTask;
+        return Task.FromResult("OK");
 
     }
 }
