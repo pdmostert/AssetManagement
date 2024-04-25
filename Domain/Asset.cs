@@ -23,5 +23,8 @@ public  class Asset: Entity
     public string? Type { get; set; }
     public string? Status { get; set; }
 
+    public string AssetTag => $"{Name} - {SerialNumber}";
+    public string AssetFullTag => $"{Name} - {SerialNumber} - {Category} - {SubCategory} - {Type} - {Status}";
+
 
 }

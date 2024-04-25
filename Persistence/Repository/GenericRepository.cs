@@ -5,7 +5,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Persistence.Repository;
 
-internal class GenericRepository<T> : IGenericRepository<T> where T : class
+internal class GenericRepository<T> : IGenericRepository<T> where T : Entity
 {
     private readonly IAssetDbContext<T> _assetDbContext;
     private readonly string _fileName;
@@ -33,21 +33,59 @@ internal class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public Task Delete(T entity)
     {
-        throw new NotImplementedException();
+        List<T> existingEntities = _assetDbContext.Load(_fileName).Result;
+
+        if (existingEntities == null)
+        {
+            existingEntities = new List<T>();
+        }
+
+        existingEntities.Remove(entity);
+        _assetDbContext.Save(_fileName, existingEntities);
+        return Task.CompletedTask;
+
     }
 
     public Task<T> GetById(Guid id)
     {
-        throw new NotImplementedException();
+        List<T> existingEntities = _assetDbContext.Load(_fileName).Result;
+
+        if (existingEntities == null)
+        {
+            existingEntities = new List<T>();
+        }
+
+
+        return Task.FromResult(existingEntities.First(x=>x.Id == id));
     }
 
     public Task<List<T>> ListAll()
     {
-        throw new NotImplementedException();
+        List<T> existingEntities = _assetDbContext.Load(_fileName).Result;
+
+        if (existingEntities == null)
+        {
+            existingEntities = new List<T>();
+        }
+
+        return Task.FromResult(existingEntities);
     }
 
     public Task Update(T entity)
     {
-        throw new NotImplementedException();
+        List<T> existingEntities = _assetDbContext.Load(_fileName).Result;
+
+        if (existingEntities == null)
+        {
+            existingEntities = new List<T>();
+        }
+
+        // remove current item from list by id and add new item in its place
+        existingEntities.Remove(existingEntities.First(x => x.Id == entity.Id));
+        existingEntities.Add(entity);
+
+        _assetDbContext.Save(_fileName, existingEntities);
+        return Task.CompletedTask;
+
     }
 }
