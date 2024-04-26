@@ -7,8 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Persistence;
+
+/// <summary>
+/// Represents the asset database context.
+/// </summary>
 internal class AssetDbContext : IAssetDbContext<Asset>
 {
+    /// <summary>
+    /// Loads the assets from the specified file.
+    /// </summary>
+    /// <param name="fileName">The name of the file to load.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the list of loaded assets.</returns>
     public Task<List<Asset>> Load(string fileName)
     {
         //build path to file
@@ -26,6 +35,12 @@ internal class AssetDbContext : IAssetDbContext<Asset>
         return Task.FromResult(new List<Asset>());
     }
 
+    /// <summary>
+    /// Saves the assets to the specified file.
+    /// </summary>
+    /// <param name="fileName">The name of the file to save.</param>
+    /// <param name="data">The list of assets to save.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
     public Task Save(string fileName, List<Asset> data)
     {
         // Convert list to JSON string
@@ -41,7 +56,6 @@ internal class AssetDbContext : IAssetDbContext<Asset>
             // Create file if it does not exist
             File.Create(fileNameAndPath).Dispose();
         }
-
 
         // Write JSON string to file
         File.WriteAllText(fileNameAndPath, json);

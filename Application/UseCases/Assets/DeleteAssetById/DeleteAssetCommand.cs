@@ -6,4 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.UseCases.Assets.DeleteAssetById;
-public record DeleteAssetCommand(Guid AssetId): IRequest<Unit>;
+
+/// <summary>
+/// Represents a command to delete an asset by its ID.
+/// </summary>
+public record DeleteAssetCommand(Guid AssetId) : IRequest<Unit>;

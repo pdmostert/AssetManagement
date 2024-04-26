@@ -7,4 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.UseCases.Assets.GetAssetList;
-public record GetAssetListQuery:IRequest<List<Asset>>;
+
+/// <summary>
+/// Represents a query to get a list of assets.
+/// </summary>
+public record GetAssetListQuery : IRequest<List<Asset>>
+{
+}

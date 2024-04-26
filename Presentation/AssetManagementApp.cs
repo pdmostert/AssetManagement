@@ -8,13 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Presentation;
+
+/// <summary>
+/// Represents the Asset Management Application.
+/// </summary>
 public class AssetManagementApp
 {
     private readonly IConfiguration _configuration;
     private readonly IMediator _mediator;
     private bool exitApp = false;
-    private readonly Menu _menu ;
+    private readonly Menu _menu;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AssetManagementApp"/> class.
+    /// </summary>
+    /// <param name="configuration">The configuration.</param>
+    /// <param name="mediator">The mediator.</param>
     public AssetManagementApp(IConfiguration configuration, IMediator mediator)
     {
         _configuration = configuration;
@@ -22,6 +31,10 @@ public class AssetManagementApp
         _menu = new Menu(_mediator);
     }
 
+    /// <summary>
+    /// Runs the Asset Management Application.
+    /// </summary>
+    /// <param name="args">The command line arguments.</param>
     public void Run(string[] args)
     {
         while (!exitApp)
@@ -55,16 +68,11 @@ public class AssetManagementApp
         }
     }
 
+    /// <summary>
+    /// Exports the assets to a CSV file.
+    /// </summary>
     private void ExportToCsv()
     {
         throw new NotImplementedException();
     }
-
-
-
- 
-
-
-
-
 }
