@@ -12,7 +12,7 @@ I also used the Repository pattern to access the data in the application as well
 
 
 
-[Software Demo Video]()
+[Software Demo Video](https://youtu.be/fcmdIBgdGb4)
 
 # Development Environment
 
@@ -35,3 +35,4 @@ I also used the Repository pattern to access the data in the application as well
 
 - Connect application to SQL database to store assets and history.
 - Create a Web Application for the Asset Manager.
+- Export asset data in a CSV file.

@@ -39,7 +39,6 @@ public class Menu
         Console.WriteLine("2. Add Asset");
         Console.WriteLine("3. Update Asset");
         Console.WriteLine("4. Delete Asset");
-        Console.WriteLine("5. Export to CSV");
         Console.WriteLine("99. Exit");
         Console.Write("Please enter your choice:");
     }
