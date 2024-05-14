@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Application.DTOs;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,4 +14,5 @@ namespace Application.Contracts.Persistence;
 public interface IAssetRepository : IGenericRepository<Asset>
 {
     // No additional members to document, this is a place holder for future methods, specific to the asset repository.
+    Task<AssetSummaryDTO> GetAssetSummary();
 }

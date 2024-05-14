@@ -19,11 +19,13 @@ I also used the Repository pattern to access the data in the application as well
 * Visual Studio 2022
 * C# and .NET 8
 * Git / Github
+* MS SQL Developer Edition
 
 # Packages
 
 * MediatR
 * Newtonsoft.Json
+* Dapper ORM
 
 # Useful Websites
 
@@ -31,8 +33,23 @@ I also used the Repository pattern to access the data in the application as well
 - [W3 Schools](https://www.w3schools.com/cs/index.php)
 - [CQRS by Martin Fowler](https://martinfowler.com/bliki/CQRS.html)
 
+
+## Connect application to SQL database to store assets and history.
+
+For this refactoring of the application I have extended the application to use a SQL database to store the assets details. To this end building the initial project with a clean architecture patterns has made this refactoring easier. The use if interfaces at integration points has also made it easier to swap out the data access layer with a SQL database. The application layer and domain layer was not affected by the change in the data access layer.
+
+During my research phase I identified for C# that there are two mainstream ORM libraries that are used to access SQL databases. These are Entity Framework and Dapper. I chose to use Dapper because it is a lightweight ORM and is faster than Entity Framework. Dapper is also easier to use and has a lower learning curve than Entity Framework. Dapper is also more flexible than Entity Framework and allows for more control over the SQL queries that are executed.
+
+As part of this refactoring, I have adjusted the AssetDbContext to use Dapper ORM to access the SQL database. I have also created a new repository for the assets and the asset history. The repository is responsible for the CRUD operations of the assets and the asset history. The repository is also responsible for the queries to the database. The repository is injected into the AssetService class which is responsible for the business logic of the application.
+
+## Useful Websites
+- [Learn Dapper](https://www.learndapper.com/)
+- [Dapper Github](https://github.com/DapperLib/Dapper)
+
+[Software Demo for SQL refactoring]()
+
+
 # Future Work
 
-- Connect application to SQL database to store assets and history.
 - Create a Web Application for the Asset Manager.
 - Export asset data in a CSV file.

@@ -24,8 +24,8 @@ public static class DependencyInjection
     /// <returns>The updated service collection.</returns>
     public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<IAssetDbContext<Asset>, AssetDbContext>();
-        services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+        services.AddScoped<IAssetDbContext, AssetDbContext>();
         services.AddScoped<IAssetRepository, AssetRepository>();
         return services;
     }

@@ -9,6 +9,10 @@ namespace Domain;
 // Represents an asset with various properties and methods
 public class Asset : Entity
 {
+    public Asset()
+    {
+        
+    }
     // Constructor
     public Asset(string name, string serialNumber)
     {
