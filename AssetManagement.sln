@@ -14,15 +14,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{4E9134DB-F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ui", "ui", "{DF3386E5-2E59-4EB8-BC95-1B9BACB1149F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{51DC4582-7CC9-418D-8AC4-F3150CE3C82C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{51DC4582-7CC9-418D-8AC4-F3150CE3C82C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{14E7313D-1BAC-4888-9BBD-792D2AF7EEE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{14E7313D-1BAC-4888-9BBD-792D2AF7EEE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{E1666981-DDAF-4DC9-A6E9-5B6402DD88D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{E1666981-DDAF-4DC9-A6E9-5B6402DD88D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{9B26DE32-9557-49CB-950C-E382987B4253}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{BEFFBD52-6EF0-4281-AB93-D21D07352EF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{BEFFBD52-6EF0-4281-AB93-D21D07352EF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql scripts", "sql scripts", "{94609A2B-4A8F-4889-AFF6-564851DA3AA0}"
+	ProjectSection(SolutionItems) = preProject
+		CreateAssetManagementDB.sql = CreateAssetManagementDB.sql
+		CreateAssetTable.sql = CreateAssetTable.sql
+		CreateAssetAllocationTable.sql = CreateAssetAllocationTable.sql
+		CreateAssetOwnerTable.sql = CreateAssetOwnerTable.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +66,7 @@ Global
 		{E1666981-DDAF-4DC9-A6E9-5B6402DD88D1} = {DF3386E5-2E59-4EB8-BC95-1B9BACB1149F}
 		{9B26DE32-9557-49CB-950C-E382987B4253} = {B01F26C9-8726-4DD5-BA48-919482C00B49}
 		{BEFFBD52-6EF0-4281-AB93-D21D07352EF6} = {9B26DE32-9557-49CB-950C-E382987B4253}
+		{94609A2B-4A8F-4889-AFF6-564851DA3AA0} = {B01F26C9-8726-4DD5-BA48-919482C00B49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20C051A8-A036-430A-A28A-A58CF68D36E2}
