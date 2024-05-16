@@ -46,7 +46,7 @@ As part of this refactoring, I have adjusted the AssetDbContext to use Dapper OR
 - [Learn Dapper](https://www.learndapper.com/)
 - [Dapper Github](https://github.com/DapperLib/Dapper)
 
-[Software Demo for SQL refactoring]()
+[Software Demo for SQL refactoring](https://youtu.be/xkzQwVxwZmo)
 
 
 # Future Work
