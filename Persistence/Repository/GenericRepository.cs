@@ -1,8 +1,6 @@
 ﻿using Application.Contracts.Persistence;
 using Domain;
-using Newtonsoft.Json;
 using System.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Persistence.Repository;
 
@@ -13,7 +11,7 @@ namespace Persistence.Repository;
 internal class GenericRepository<T> : IGenericRepository<T> where T : Entity
 {
     private readonly IDbConnection _dbConnection;
-    
+
 
 
     /// <summary>

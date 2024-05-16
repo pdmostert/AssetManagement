@@ -40,7 +40,7 @@ For this refactoring of the application I have extended the application to use a
 
 During my research phase I identified for C# that there are two mainstream ORM libraries that are used to access SQL databases. These are Entity Framework and Dapper. I chose to use Dapper because it is a lightweight ORM and is faster than Entity Framework. Dapper is also easier to use and has a lower learning curve than Entity Framework. Dapper is also more flexible than Entity Framework and allows for more control over the SQL queries that are executed.
 
-As part of this refactoring, I have adjusted the AssetDbContext to use Dapper ORM to access the SQL database. I have also created a new repository for the assets and the asset history. The repository is responsible for the CRUD operations of the assets and the asset history. The repository is also responsible for the queries to the database. The repository is injected into the AssetService class which is responsible for the business logic of the application.
+As part of this refactoring, I have adjusted the AssetDbContext to use Dapper ORM to access the SQL database. I have also created a new repository for the assets and the asset history. The repository is responsible for the CRUD operations of the assets and the asset history. The repository is also responsible for the queries to the database. The repository is injected into the AssetService class which is responsible for the business logic of the application. This new repository makes used of SQL queries to perform the CRUD and Summary operations on the database.
 
 ## Useful Websites
 - [Learn Dapper](https://www.learndapper.com/)

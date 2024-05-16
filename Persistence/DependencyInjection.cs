@@ -1,13 +1,7 @@
 ﻿using Application.Contracts.Persistence;
-using Domain;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence;
 
@@ -27,6 +21,9 @@ public static class DependencyInjection
 
         services.AddScoped<IAssetDbContext, AssetDbContext>();
         services.AddScoped<IAssetRepository, AssetRepository>();
+        services.AddScoped<IAssetOwnerRepository, AssetOwnerRepository>();
+        services.AddScoped<IAssetAllocationRepository, AssetAllocationRepository>();
+
         return services;
     }
 }

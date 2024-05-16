@@ -1,15 +1,9 @@
-﻿using Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.DTOs;
 
 namespace Application.Contracts.Persistence;
 public interface IAssetAllocationRepository
 {
-    Task<AssetAllocation> GetAssetAllocationByAssetId(Guid assetId);
-    Task<AssetAllocation> GetAssetAllocationByAssetOwnerId(Guid assetOwnerId);
+    Task AllocateAssetToOwner(Guid assetId, Guid ownerId);
 
-
+    Task<List<AssetSummaryDTO>> GetAssetSummary();
 }

@@ -9,7 +9,7 @@ using Presentation;
 
 public class Program
 {
-    
+
     public static void Main(string[] args)
     {
         //Setup Host environment, allowing for the use of an appsettings.json file for configuration as well as dependency injection.

@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain;
+﻿namespace Domain;
 
 // Represents an asset with various properties and methods
 public class Asset : Entity
 {
     public Asset()
     {
-        
+
     }
     // Constructor
     public Asset(string name, string serialNumber)

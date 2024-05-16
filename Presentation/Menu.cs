@@ -1,14 +1,14 @@
-﻿using Application.UseCases.Assets.CreateAsset;
+﻿using Application.DTOs;
+using Application.UseCases.AssetAllocations.AllocateAssetToOwner;
+using Application.UseCases.AssetAllocations.GetAssetSummary;
+using Application.UseCases.AssetOwners.CreateAssetOwner;
+using Application.UseCases.AssetOwners.GetAssetOwnerList;
+using Application.UseCases.Assets.CreateAsset;
 using Application.UseCases.Assets.DeleteAssetById;
 using Application.UseCases.Assets.GetAssetById;
 using Application.UseCases.Assets.GetAssetList;
 using Application.UseCases.Assets.UpdateAsset;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Presentation;
 
@@ -39,6 +39,11 @@ public class Menu
         Console.WriteLine("2. Add Asset");
         Console.WriteLine("3. Update Asset");
         Console.WriteLine("4. Delete Asset");
+        //Console.WriteLine("5. Export to CSV");
+        Console.WriteLine("10. Display Asset Owners");
+        Console.WriteLine("11. Add Asset Owner");
+        Console.WriteLine("15. Allocate Asset to Owner");
+        Console.WriteLine("16. Display Asset Allocation Summary");
         Console.WriteLine("99. Exit");
         Console.Write("Please enter your choice:");
     }
@@ -147,4 +152,78 @@ public class Menu
         var result = _mediator.Send(new UpdateAssetCommand(Guid.Parse(assetId), asset["Name"], asset["SerialNumber"], asset["Description"],
             asset["Make"], asset["Model"], asset["Category"], asset["SubCategory"], asset["Type"], asset["Status"])).Result;
     }
+
+    public void DisplayAssetOwners()
+    {
+        var assetOwners = _mediator.Send(new GetAssetOwnersQuery()).Result;
+        Console.WriteLine("Asset Owners");
+        Console.WriteLine("ID\tFull Name\tEmail\tPhone Number\tDepartment");
+        foreach (var owner in assetOwners)
+        {
+            Console.WriteLine($"{owner.Id}\t{owner.FullName}\t{owner.Email}\t{owner.PhoneNumber}\t{owner.Department}");
+        }
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+    }
+
+    public void AddAssetOwnerMenu()
+    {
+        Console.Write("Enter Asset Owner Full Name:");
+        var fullName = Console.ReadLine();
+        Console.Write("Enter Asset Owner Email:");
+        var email = Console.ReadLine();
+        Console.Write("Enter Asset Owner Phone Number:");
+        var phoneNumber = Console.ReadLine();
+        Console.Write("Enter Asset Owner Department:");
+        var department = Console.ReadLine();
+
+        // Call the AddAssetOwnerCommand
+        _mediator.Send(new CreateAssetOwnerCommand(fullName, email, phoneNumber, department));
+    }
+
+
+    public void AllocateAssetToOwnerMenu()
+    {
+        DisplayAssets();
+        Console.Write("Enter Asset ID to allocate:");
+        var assetId = Console.ReadLine();
+        Guid selectedAssetId = Guid.Empty;
+        bool success = Guid.TryParse(assetId, out selectedAssetId);
+        while (!success)
+        {
+            Console.WriteLine("Invalid Asset ID. Please try again.");
+            assetId = Console.ReadLine();
+            success = Guid.TryParse(assetId, out selectedAssetId);
+        }
+
+        DisplayAssetOwners();
+        Console.Write("Enter Asset Owner ID to allocate:");
+        var ownerId = Console.ReadLine();
+        Guid selectedOwnerId = Guid.Empty;
+        success = Guid.TryParse(ownerId, out selectedOwnerId);
+        while (!success)
+        {
+            Console.WriteLine("Invalid Asset Owner ID. Please try again.");
+            ownerId = Console.ReadLine();
+            success = Guid.TryParse(ownerId, out selectedOwnerId);
+        }
+
+        // Call the AllocateAssetCommand
+        _mediator.Send(new AllocateAssetToOwnerCommand(selectedOwnerId, selectedAssetId));
+    }
+
+
+    public void DisplayAssetAllocationSummary()
+    {
+        List<AssetSummaryDTO> assetSummary = _mediator.Send(new GetAssetSummaryQuery()).Result;
+        Console.WriteLine("Asset Allocation Summary");
+        Console.WriteLine("Owner Name\tNo. Allocated Assets");
+        foreach (var summary in assetSummary)
+        {
+            Console.WriteLine($"{summary.FullName}\t{summary.AssetCount}");
+        }
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+    }
+
 }

@@ -1,12 +1,7 @@
 ﻿using Application.Contracts.Persistence;
 using Dapper;
 using Domain;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static Dapper.SqlMapper;
 
 namespace Persistence.Repository;
@@ -45,7 +40,7 @@ internal class AssetRepository : IAssetRepository
         return result;
     }
 
-    public async  Task<List<Asset>> ListAll()
+    public async Task<List<Asset>> ListAll()
     {
         string sql = @"SELECT Id, Name, Description, Make, Model, SerialNumber, Category, SubCategory, Type, Status
                     FROM Assets";

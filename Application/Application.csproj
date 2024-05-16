@@ -17,15 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\AssetAllocations\AllocateAssetToOwner\" />
     <Folder Include="UseCases\AssetAllocations\GetAssetAllocationByOwner\" />
     <Folder Include="UseCases\AssetAllocations\GetAssetAllocationByAsset\" />
-    <Folder Include="UseCases\AssetOwners\CreateAssetOwner\" />
-    <Folder Include="UseCases\AssetOwners\DeleteAssetOwner\" />
-    <Folder Include="UseCases\AssetOwners\GetAssetOwnerById\" />
-    <Folder Include="UseCases\AssetOwners\GetAssetOwnerList\" />
-    <Folder Include="UseCases\AssetOwners\UpdateAssetowner\" />
-    <Folder Include="UseCases\Assets\GetAssetSummary\" />
   </ItemGroup>
 
 </Project>

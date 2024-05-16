@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain;
-public class AssetOwner: Entity
+﻿namespace Domain;
+public class AssetOwner : Entity
 {
     public AssetOwner()
     {
-        
+
     }
     public AssetOwner(string fullName)
     {

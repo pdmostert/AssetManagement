@@ -1,11 +1,5 @@
-﻿using Application.UseCases.Assets.CreateAsset;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Presentation;
 
@@ -55,8 +49,20 @@ public class AssetManagementApp
                 case "4":
                     _menu.DeleteAssetMenu();
                     break;
-                case "5":
-                    ExportToCsv();
+                //case "5":
+                //    ExportToCsv();
+                //    break;
+                case "10":
+                    _menu.DisplayAssetOwners();
+                    break;
+                case "11":
+                    _menu.AddAssetOwnerMenu();
+                    break;
+                case "15":
+                    _menu.AllocateAssetToOwnerMenu();
+                    break;
+                case "16":
+                    _menu.DisplayAssetAllocationSummary();
                     break;
                 case "99":
                     exitApp = true;

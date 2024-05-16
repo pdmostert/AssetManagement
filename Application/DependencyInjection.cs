@@ -1,16 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
 
 namespace Application;
-    /// <summary>
-    /// Provides extension methods for configuring application services.
-    /// </summary>
+/// <summary>
+/// Provides extension methods for configuring application services.
+/// </summary>
 public static class DependencyInjection
 {
     /// <summary>
