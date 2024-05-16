@@ -153,6 +153,9 @@ public class Menu
             asset["Make"], asset["Model"], asset["Category"], asset["SubCategory"], asset["Type"], asset["Status"])).Result;
     }
 
+    /// <summary>
+    /// Displays the list of asset owners.
+    /// </summary>
     public void DisplayAssetOwners()
     {
         var assetOwners = _mediator.Send(new GetAssetOwnersQuery()).Result;
@@ -166,6 +169,9 @@ public class Menu
         Console.ReadKey();
     }
 
+    /// <summary>
+    /// Displays the menu for adding a new asset owner.
+    /// </summary>
     public void AddAssetOwnerMenu()
     {
         Console.Write("Enter Asset Owner Full Name:");
@@ -181,7 +187,9 @@ public class Menu
         _mediator.Send(new CreateAssetOwnerCommand(fullName, email, phoneNumber, department));
     }
 
-
+    /// <summary>
+    /// Displays the menu for allocating an asset to an owner.
+    /// </summary>
     public void AllocateAssetToOwnerMenu()
     {
         DisplayAssets();
@@ -212,7 +220,9 @@ public class Menu
         _mediator.Send(new AllocateAssetToOwnerCommand(selectedOwnerId, selectedAssetId));
     }
 
-
+    /// <summary>
+    /// Displays the asset allocation summary.
+    /// </summary>
     public void DisplayAssetAllocationSummary()
     {
         List<AssetSummaryDTO> assetSummary = _mediator.Send(new GetAssetSummaryQuery()).Result;
@@ -225,5 +235,4 @@ public class Menu
         Console.WriteLine("Press any key to continue...");
         Console.ReadKey();
     }
-
 }
