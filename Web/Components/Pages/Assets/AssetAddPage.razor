@@ -1,0 +1,59 @@
+﻿@page "/asset-add"
+<h3>Asset Add Page</h3>
+
+<EditForm Model="@Asset" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <InputText id="Name" class="form-control" @bind-Value="Asset.Name" />
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <InputText id="Description" class="form-control" @bind-Value="Asset.Description" />
+    </div>
+
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <InputText id="Category" class="form-control" @bind-Value="Asset.Category" />
+    </div>
+
+    <div class="form-group">
+        <label for="SubCategory">SubCategory</label>
+        <InputText id="SubCategory" class="form-control" @bind-Value="Asset.SubCategory" />
+    </div>
+
+    <div class="form-group">
+        <label for="Make">Make</label>
+        <InputText id="Make" class="form-control" @bind-Value="Asset.Make" />
+    </div>
+
+    <div class="form-group">
+        <label for="Model">Model</label>
+        <InputText id="Model" class="form-control" @bind-Value="Asset.Model" />
+    </div>
+
+    <div class="form-group">
+        <label for="SerialNumber">SerialNumber</label>
+        <InputText id="SerialNumber" class="form-control" @bind-Value="Asset.SerialNumber" />
+    </div>
+
+    <div class="form-group">
+        <label for="Type">Type</label>
+        <InputText id="Type" class="form-control" @bind-Value="Asset.Type" />
+    </div>
+
+
+    <div class="form-group">
+        <label for="Status">Status</label>
+        <InputText id="Status" class="form-control" @bind-Value="Asset.Status" />
+    </div>
+
+
+    <div class="my-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-danger" @onclick="Cancel">Cancel</button>
+    </div>
+
+</EditForm>

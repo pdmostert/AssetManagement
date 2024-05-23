@@ -26,11 +26,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql scripts", "sql scripts", "{94609A2B-4A8F-4889-AFF6-564851DA3AA0}"
 	ProjectSection(SolutionItems) = preProject
-		CreateAssetManagementDB.sql = CreateAssetManagementDB.sql
-		CreateAssetTable.sql = CreateAssetTable.sql
 		CreateAssetAllocationTable.sql = CreateAssetAllocationTable.sql
+		CreateAssetManagementDB.sql = CreateAssetManagementDB.sql
 		CreateAssetOwnerTable.sql = CreateAssetOwnerTable.sql
+		CreateAssetTable.sql = CreateAssetTable.sql
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{513CC580-DA1C-4C05-94FA-0D0506C75D1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,10 @@ Global
 		{BEFFBD52-6EF0-4281-AB93-D21D07352EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEFFBD52-6EF0-4281-AB93-D21D07352EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEFFBD52-6EF0-4281-AB93-D21D07352EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513CC580-DA1C-4C05-94FA-0D0506C75D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513CC580-DA1C-4C05-94FA-0D0506C75D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513CC580-DA1C-4C05-94FA-0D0506C75D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513CC580-DA1C-4C05-94FA-0D0506C75D1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{9B26DE32-9557-49CB-950C-E382987B4253} = {B01F26C9-8726-4DD5-BA48-919482C00B49}
 		{BEFFBD52-6EF0-4281-AB93-D21D07352EF6} = {9B26DE32-9557-49CB-950C-E382987B4253}
 		{94609A2B-4A8F-4889-AFF6-564851DA3AA0} = {B01F26C9-8726-4DD5-BA48-919482C00B49}
+		{513CC580-DA1C-4C05-94FA-0D0506C75D1A} = {DF3386E5-2E59-4EB8-BC95-1B9BACB1149F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20C051A8-A036-430A-A28A-A58CF68D36E2}

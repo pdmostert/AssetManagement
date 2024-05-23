@@ -1,0 +1,35 @@
+﻿@page "/asset-owner-add"
+<h3>Asset Owner Add Page</h3>
+
+
+<EditForm Model="@AssetOwner" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="Name">FullName</label>
+        <InputText id="Name" class="form-control" @bind-Value="AssetOwner.FullName" />
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <InputText id="Description" class="form-control" @bind-Value="AssetOwner.Email" />
+    </div>
+
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <InputText id="Category" class="form-control" @bind-Value="AssetOwner.PhoneNumber" />
+    </div>
+
+    <div class="form-group">
+        <label for="SubCategory">SubCategory</label>
+        <InputText id="SubCategory" class="form-control" @bind-Value="AssetOwner.Department" />
+    </div>
+
+
+    <div class="my-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-danger" @onclick="Cancel">Cancel</button>
+    </div>
+
+</EditForm>

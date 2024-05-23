@@ -1,4 +1,6 @@
-﻿namespace Domain;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Domain;
 
 // Represents an asset with various properties and methods
 public class Asset : Entity
@@ -15,10 +17,12 @@ public class Asset : Entity
     }
 
     // Properties
+    [Required]
     public string Name { get; set; }
     public string? Description { get; set; }
     public string? Make { get; set; }
     public string? Model { get; set; }
+    [Required]
     public string SerialNumber { get; set; }
     public string? Category { get; set; }
     public string? SubCategory { get; set; }

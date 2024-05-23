@@ -21,11 +21,11 @@ internal class DeleteAssetCommandHandler : IRequestHandler<DeleteAssetCommand, U
     /// <param name="request">The delete asset command.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>A task representing the asynchronous operation.</returns>
-    public Task<Unit> Handle(DeleteAssetCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(DeleteAssetCommand request, CancellationToken cancellationToken)
     {
-        var assetToDelete = _assetRepository.GetById(request.AssetId).Result;
+        var assetToDelete = await _assetRepository.GetById(request.AssetId);
 
-        _assetRepository.Delete(assetToDelete);
-        return Unit.Task;
+        await _assetRepository.Delete(assetToDelete);
+        return await Unit.Task;
     }
 }

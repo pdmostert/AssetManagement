@@ -1,0 +1,46 @@
+﻿@page "/asset-owners"
+<h3>Asset Owner List Page</h3>
+
+
+@if (loading)
+{
+    <h1>Loading ....</h1>
+}
+else
+{
+
+    <div class="mb-3">
+
+        <button class="btn btn-primary" @onclick="AddAssetOwner">Add Asset</button>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+                <th>Department</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in AssetOwners)
+            {
+                <tr class="p-2">
+                    <td>@item.Id</td>
+                    <td>@item.FullName</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Department</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => EditAssetOwner(item)">Edit</button>
+                        <button class="btn btn-danger" @onclick="() => DeleteAssetOwner(item)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,52 @@
+﻿@page "/assets/delete/{id:guid}"
+<h3>Asset Delete Page</h3>
+
+<div class="form-group">
+    <label for="Name">Name</label>
+    <label id="Name" class="form-control">@Asset.Name</label>
+</div>
+<div class="form-group">
+    <label for="Description">Description</label>
+    <label id="Description" class="form-control">@Asset.Description</label>
+</div>
+
+<div class="form-group">
+    <label for="Category">Category</label>
+    <label id="Category" class="form-control" >@Asset.Category</label>
+</div>
+
+<div class="form-group">
+    <label for="SubCategory">SubCategory</label>
+    <label id="SubCategory" class="form-control">@Asset.SubCategory</label>
+</div>
+
+<div class="form-group">
+    <label for="Make">Make</label>
+    <label id="Make" class="form-control">@Asset.Make</label>
+</div>
+
+<div class="form-group">
+    <label for="Model">Model</label>
+    <label id="Model" class="form-control">@Asset.Model</label>
+</div>
+
+<div class="form-group">
+    <label for="SerialNumber">SerialNumber</label>
+    <label id="SerialNumber" class="form-control">@Asset.SerialNumber</label>
+</div>
+
+<div class="form-group">
+    <label for="Type">Type</label>
+    <label id="Type" class="form-control">@Asset.Type</label>
+</div>
+
+
+<div class="form-group">
+    <label for="Status">Status</label>
+    <InputText id="Status" class="form-control" @bind-Value="Asset.Status" />
+</div>
+
+<div class="my-3">
+    <button class="btn btn-danger" @onclick="Cancel">Cancel</button>
+    <button class="btn btn-danger" @onclick="@Delete">Delete</button>
+</div>
