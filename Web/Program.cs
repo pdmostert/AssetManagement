@@ -1,7 +1,6 @@
-using Microsoft.Extensions.Configuration;
-using Web.Components;
 using Application;
 using Persistence;
+using Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -63,7 +63,7 @@ internal class AssetOwnerRepository : IAssetOwnerRepository
     public async Task Update(AssetOwner entity)
     {
         string sql = @"UPDATE AssetOwner
-                        SET FullName = @FullName, Email = @Email, PhoneNumber = @PhoneNumber, Department = @Department";
+                        SET FullName = @FullName, Email = @Email, PhoneNumber = @PhoneNumber, Department = @Department WHERE Id = @Id";
 
         await _dbConnection.ExecuteAsync(sql, entity);
     }

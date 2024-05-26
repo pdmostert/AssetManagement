@@ -1,6 +1,7 @@
 ﻿using Application.Contracts.Persistence;
 using Application.DTOs;
 using Dapper;
+using Domain;
 using System.Data;
 
 namespace Persistence.Repository;
@@ -33,6 +34,14 @@ internal class AssetAllocationRepository : IAssetAllocationRepository
                           (AssetId, AssetOwnerId, AllocationDate)
                           VALUES (@AssetId, @AssetOwnerId, @AllocationDate)";
         await _dbConnection.ExecuteAsync(sql, new { AssetId = assetId, AssetOwnerId = ownerId, AllocationDate = DateTime.Now });
+    }
+
+    public async  Task<List<AssetAllocation>> GetAll()
+    {
+        string sql = @"SELECT [AssetId],[AssetOwnerId],[AllocationDate] 
+                    FROM [AssetManagementDB].[dbo].[AssetAllocation]";
+        var result = await _dbConnection.QueryAsync<AssetAllocation>(sql);
+        return result.ToList();
     }
 
     /// <summary>

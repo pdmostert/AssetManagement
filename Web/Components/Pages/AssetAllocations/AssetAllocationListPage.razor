@@ -1,0 +1,37 @@
+﻿@page "/asset-allocations"
+<h3>Asset Allocation List Page</h3>
+
+@if (loading)
+{
+    <h1>Loading ....</h1>
+}
+else
+{
+
+    <div class="mb-3">
+
+        <button class="btn btn-primary" @onclick="AddAssetAllocation">Allocate Asset to Owner</button>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Asset Name</th>
+                <th>Asset Owner</th>
+                <th>Allocate Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in _assets)
+            {
+                <tr class="p-2">
+                    <td>@item.Asset.Name</td>
+                    <td>@item.AssetOwner.FullName</td>
+                    <td>@item.AllocationDate.ToLongDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

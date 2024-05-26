@@ -2,3 +2,28 @@
 <h3>Asset Owner Delete Page</h3>
 
 
+<div class="form-group">
+    <label for="FullName">Full Name</label>
+    <lable class="form-control">@AssetOwner.FullName</lable>
+</div>
+
+<div class="form-group">
+    <label for="Email">Email</label>
+    <lable class="form-control">@AssetOwner.Email</lable>
+</div>
+
+<div class="form-group">
+    <label for="PhoneNumber">PhoneNumber</label>
+    <lable class="form-control">@AssetOwner.PhoneNumber</lable>
+</div>
+
+<div class="form-group">
+    <label for="Department">Department</label>
+    <lable class="form-control">@AssetOwner.Department</lable>
+</div>
+
+
+<div class="my-3">
+    <button type="button" class="btn btn-danger" @onclick="HandleValidSubmit">Delete</button>
+    <button class="btn btn-danger" @onclick="Cancel">Cancel</button>
+</div>

@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="UseCases\AssetAllocations\GetAssetAllocationByOwner\" />
-    <Folder Include="UseCases\AssetAllocations\GetAssetAllocationByAsset\" />
   </ItemGroup>
 
 </Project>

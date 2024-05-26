@@ -1,4 +1,3 @@
-using Application.Contracts.Persistence;
 using Application.UseCases.Assets.GetAssetById;
 using Application.UseCases.Assets.UpdateAsset;
 using Domain;
@@ -18,7 +17,7 @@ public partial class AssetEditPage
 
     protected override async Task OnInitializedAsync()
     {
-        if(Id == Guid.Empty)
+        if (Id == Guid.Empty)
         {
             Asset = new Asset();
             return;

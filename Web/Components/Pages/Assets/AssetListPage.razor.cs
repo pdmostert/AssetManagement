@@ -1,4 +1,3 @@
-using Application.Contracts.Persistence;
 using Application.UseCases.Assets.GetAssetList;
 using Domain;
 using MediatR;

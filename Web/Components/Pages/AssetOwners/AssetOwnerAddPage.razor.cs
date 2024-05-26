@@ -1,4 +1,4 @@
-using Application.UseCases.Assets.CreateAsset;
+using Application.UseCases.AssetOwners.CreateAssetOwner;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Components;
@@ -14,7 +14,8 @@ public partial class AssetOwnerAddPage
 
     protected async Task HandleValidSubmit()
     {
-
+        await mediator.Send(new CreateAssetOwnerCommand(AssetOwner.FullName, AssetOwner.Email, AssetOwner.PhoneNumber, AssetOwner.Department));
+        _navigationManager.NavigateTo("/asset-owners");
     }
     protected void Cancel()
     {

@@ -1,10 +1,7 @@
-using Application.Contracts.Persistence;
 using Application.UseCases.Assets.CreateAsset;
-using Azure.Core;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Components;
-using System.Reflection;
 
 namespace Web.Components.Pages.Assets;
 public partial class AssetAddPage
@@ -17,7 +14,7 @@ public partial class AssetAddPage
 
     protected async Task HandleValidSubmit()
     {
-        if(string.IsNullOrEmpty(Asset.Name) || string.IsNullOrEmpty(Asset.SerialNumber))
+        if (string.IsNullOrEmpty(Asset.Name) || string.IsNullOrEmpty(Asset.SerialNumber))
         {
             return;
         }
