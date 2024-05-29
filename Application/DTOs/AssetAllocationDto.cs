@@ -1,6 +1,7 @@
 ﻿using Domain;
 
 namespace Application.DTOs;
+// Dto to represent the Asset Allocation and its properties
 public class AssetAllocationDto
 {
     public Guid AssetId { get; set; }

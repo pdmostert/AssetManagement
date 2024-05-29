@@ -28,9 +28,18 @@ public partial class AssetAllocationListPage
         _assets = await mediator.Send(new GetAssetAllocationByAssetQuery());
     }
 
-    protected async Task AddAssetAllocation()
+    protected async Task AddAssetToOwner()
+    {
+        _navigationManager.NavigateTo("/asset-owners");
+    }
+    protected async Task AddOwnerToAsset()
+    {
+        _navigationManager.NavigateTo("/assets");
+    }
+    protected void AllocationSummary()
     {
 
+       _navigationManager.NavigateTo("/asset-allocations-summary");
     }
 
 

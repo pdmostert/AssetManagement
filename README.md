@@ -48,8 +48,20 @@ As part of this refactoring, I have adjusted the AssetDbContext to use Dapper OR
 
 [Software Demo for SQL refactoring](https://youtu.be/xkzQwVxwZmo)
 
+### Create a Web Application for the Asset Manager.
+
+## Overview
+
+For this part of the project I extended the application to a Blazor Server Web Front End. The purpose of this extension is to allow the user to interact with the application through a web interface. The user can add, delete, update, and view assets through the web interface. The user can also view the asset history of an asset. The user can also view the summary of the assets in the database.
+The addition of some DTO's (Data Transfer Objects) was required to allow for presentation data to be sent to the web page. In an enterprise solution this would be a common pattern to use to separate the data from the presentation layer.
+Pages for Asset Owner List, Edit, Add and Delete were created. The pages were created using the Blazor Server template in Visual Studio 2022. The pages were created using HTML, Razor syntax and C# code. Similar pages were created for Assets and Asset Allocation. Each page has a corresponding code behind file that contains the logic for the page.
+Asset Allocation also has a summary view of current asset allocations utilizing the power of SQL query language to summarize and get the data from the database.
+
+## Useful Websites
+- [Microsoft Learn Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-8.0)
+
+
+[Software Demo for Web Front-end refactoring](https://youtu.be/VIR9umYtrSc)
 
 # Future Work
-
-- Create a Web Application for the Asset Manager.
 - Export asset data in a CSV file.

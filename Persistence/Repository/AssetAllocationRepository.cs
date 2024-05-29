@@ -50,11 +50,30 @@ internal class AssetAllocationRepository : IAssetAllocationRepository
     /// <returns>A list of asset summaries.</returns>
     public async Task<List<AssetSummaryDTO>> GetAssetSummary()
     {
-        string sql = @"SELECT AssetOwner.FullName, COUNT(Assets.Id) AS AssetCount
-                           FROM AssetOwner
-                           INNER JOIN AssetAllocation ON AssetOwner.Id = AssetAllocation.AssetOwnerId
-                           INNER JOIN Assets ON AssetAllocation.AssetId = Assets.Id
-                           GROUP BY AssetOwner.FullName";
+        string sql = @"WITH LatestAllocations AS (
+                        SELECT
+                            AssetId,
+                            AssetOwnerId,
+                            AllocationDate,
+                            ROW_NUMBER() OVER (PARTITION BY AssetID ORDER BY AllocationDate DESC) AS rn
+                        FROM AssetAllocation
+                    )
+                    SELECT
+                        ao.FullName,
+                        COUNT(la.AssetID) AS AssetCount
+                    FROM
+                        AssetOwner ao
+                    INNER JOIN
+                        (SELECT AssetId, AssetOwnerId, AllocationDate
+                         FROM LatestAllocations
+                         WHERE rn = 1) la
+                    ON
+                        ao.Id = la.AssetOwnerId
+                    GROUP BY
+                        ao.Id,
+                        ao.FullName
+                    ORDER BY
+                        AssetCount DESC;";
         var result = await _dbConnection.QueryAsync<AssetSummaryDTO>(sql);
         return result.ToList();
     }

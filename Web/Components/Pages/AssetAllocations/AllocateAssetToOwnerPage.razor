@@ -1,3 +1,44 @@
-﻿<h3>Allocate Asset To Owner Page</h3>
+﻿@page "/asset-allocation-add/{id:guid}"
+@using Domain
+<h3>Allocate Asset To Owner Page</h3>
 
+@if (loading)
+{
+    <h1>Loading ....</h1>
+}
+else
+{
+    <EditForm Model="@allocationDto" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="FullName">Full Name</label>
+            <InputText id="Name" class="form-control" @bind-Value="allocationDto.AssetOwner.FullName" disabled />
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="Asset">Asset</label>
+            <InputSelect @bind-Value="allocationDto.AssetId" class="form-control">
+                <option value="@Guid.Empty">
+                    Select Asset ...
+                </option>
+                @foreach (var item in assets)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </InputSelect>
+        </div>
+
+
+        <div class="my-3">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button class="btn btn-danger" @onclick="Cancel">Cancel</button>
+        </div>
+
+    </EditForm>
+
+}
 

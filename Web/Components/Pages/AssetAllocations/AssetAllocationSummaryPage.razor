@@ -1,0 +1,29 @@
+﻿@page "/asset-allocations-summary"
+<h3>Asset Allocation Summary Page</h3>
+
+@if(loading)
+{
+    <p>Loading...</p>
+}
+else
+{
+   <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Asset Owner</th>
+                <th>Asset Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var assetAllocation in assetSummaryDTOs)
+            {
+                <tr>
+                    <td>@assetAllocation.FullName</td>
+                    <td>@assetAllocation.AssetCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

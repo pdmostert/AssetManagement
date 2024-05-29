@@ -37,5 +37,9 @@ public partial class AssetOwnerListPage
     {
         _navigationManager.NavigateTo("/asset-owner-add");
     }
+    protected void AllocateAsset(AssetOwner assetOwner)
+    {
+        _navigationManager.NavigateTo($"/asset-allocation-add/{assetOwner.Id}");
+    }
 
 }

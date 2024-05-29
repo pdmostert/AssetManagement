@@ -17,7 +17,7 @@ else
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
+@*                 <th>ID</th> *@
                 <th>Full Name</th>
                 <th>Email</th>
                 <th>PhoneNumber</th>
@@ -30,7 +30,7 @@ else
             @foreach (var item in AssetOwners)
             {
                 <tr class="p-2">
-                    <td>@item.Id</td>
+@*                     <td>@item.Id</td> *@
                     <td>@item.FullName</td>
                     <td>@item.Email</td>
                     <td>@item.PhoneNumber</td>
@@ -38,6 +38,7 @@ else
                     <td>
                         <button class="btn btn-primary" @onclick="() => EditAssetOwner(item)">Edit</button>
                         <button class="btn btn-danger" @onclick="() => DeleteAssetOwner(item)">Delete</button>
+                        <button class="btn btn-success" @onclick="() => AllocateAsset(item)">Allocate Asset</button>
                     </td>
                 </tr>
             }

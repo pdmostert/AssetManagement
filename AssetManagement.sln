@@ -26,6 +26,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql scripts", "sql scripts", "{94609A2B-4A8F-4889-AFF6-564851DA3AA0}"
 	ProjectSection(SolutionItems) = preProject
+		AssetAllocationSummaryQuery.sql = AssetAllocationSummaryQuery.sql
 		CreateAssetAllocationTable.sql = CreateAssetAllocationTable.sql
 		CreateAssetManagementDB.sql = CreateAssetManagementDB.sql
 		CreateAssetOwnerTable.sql = CreateAssetOwnerTable.sql
